@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
+import { Providers } from '@/app/providers'
+import { Figtree, Work_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// Initialize fonts
+const worksans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-worksans",
+});
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-figtree",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,12 +22,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={` ${figtree?.variable} ${worksans?.variable} w-[85%] m-auto max-w-[1440px] mt-[64px] py-8`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
+
   );
 }

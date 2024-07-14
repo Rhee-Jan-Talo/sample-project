@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        domains: [
+          "localhost",
+          "reqres.in",
+        ],
+      },
+};
+
 
 export default nextConfig;

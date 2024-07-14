@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font-worksans: 'Work Sans', sans-serif;
+  --font-figtree: 'Figtree', sans-serif;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,3 +34,14 @@ body {
     text-wrap: balance;
   }
 }
+
+p{
+  font-family: var(--font-figtree);
+}
+
+h1, h2, h3, h4{
+  font-family: var(--font-worksans);
+}
+
+
+
