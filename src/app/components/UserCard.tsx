@@ -17,7 +17,7 @@ export default function UserCard({
   };
 
   return (
-    <Card cursor="pointer" w="325px" >
+    <Card w="325px" >
       <CardBody>
         <Flex flexDir="column" gap="4" p="4">
           <Avatar name={last_name} src={avatar} size="2xl" m="auto" />
