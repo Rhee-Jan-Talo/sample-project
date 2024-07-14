@@ -20,31 +20,33 @@ export default function Users() {
       }
       const data = await response.json();
       setTotalPages(data.total_pages);
-      setUsers((prevUsers: UserInterface[]) => [...prevUsers, ...data.data]);
+      setUsers((prevUsers: UserInterface[]) => [...prevUsers, ...data.data]); // Append new data fetched to prev data
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    if (pageNum !== null) {
-      // Check if pageNum is not null before fetching
+    if (pageNum !== null) { // Check if pageNum is not null before fetching
       fetchUsers();
     } else {
       setPageNum(1); // Set pageNum to initially 1
     }
   }, [pageNum]);
 
+
   return (
     <VStack gap="4">
-      <Heading as="h1">Users Page</Heading>
+      <Heading as="h1">Users</Heading>
+      {loading ? <Spinner/> : 
       <Grid templateColumns="repeat(3, 1fr)" gap="4">
-        {users.map((item: UserInterface) => (
-          <UserCard {...item} key={item.id} />
-        ))}
-      </Grid>
+      {users.map((item: UserInterface) => (
+        <UserCard {...item} key={item.id} />
+      ))}
+    </Grid>}
       <Box>
       <Button
+        colorScheme='teal'
         isDisabled={totalPages === pageNum}
         onClick={() => setPageNum(2)}
       >
